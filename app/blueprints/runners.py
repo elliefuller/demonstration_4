@@ -3,7 +3,7 @@ from app.db_connect import get_db
 
 book_info = Blueprint('book_info', __name__)
 
-@book_info.route('/books', methods=['GET', 'POST'])
+@book_info.route('/book', methods=['GET', 'POST'])
 def books():
     db = get_db()
     cursor = db.cursor()
