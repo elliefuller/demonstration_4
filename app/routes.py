@@ -9,3 +9,6 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/books')
+def books():
+    return render_template('books.html')
