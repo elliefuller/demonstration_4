@@ -9,8 +9,8 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/books')
-def books():
+@app.route('/reads')
+def reads():
     return render_template('reads.html')
 
 @app.route('/authors')
