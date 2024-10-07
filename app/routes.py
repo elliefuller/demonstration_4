@@ -1,8 +1,8 @@
 from flask import render_template
 from . import app
-from app.blueprints.book_info import book_info
+from app.blueprints.book_info import books_blueprint
 
-app.register_blueprint(book_info, url_prefix='/book_info')
+app.register_blueprint(books_blueprint, url_prefix='/book_info')
 
 @app.route('/')
 def index():
