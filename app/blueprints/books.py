@@ -16,7 +16,7 @@ def books():
         book_pages = request.form['book_pages']
 
         # Insert the new book into the database
-        cursor.execute('INSERT INTO book_info (book_title, book_author, book_genre, book_pages) VALUES (%s, %s, %s, %s)',
+        cursor.execute('INSERT INTO books (book_title, book_author, book_genre, book_pages) VALUES (%s, %s, %s, %s)',
                        (book_title, book_author, book_genre, book_pages))
         db.commit()
 
@@ -24,7 +24,7 @@ def books():
         return redirect(url_for('books_blueprint.books'))
 
     # Handle GET request to display all books
-    cursor.execute('SELECT * FROM book_info')
+    cursor.execute('SELECT * FROM books')
     all_books = cursor.fetchall()
     return render_template('books.html', all_books=all_books)
 
@@ -40,7 +40,7 @@ def update_book(book_id):
         book_genre = request.form['book_genre']
         book_pages = request.form['book_pages']
 
-        cursor.execute('UPDATE book_info SET book_title = %s, book_author = %s, book_genre = %s, book_pages = %s WHERE book_id = %s',
+        cursor.execute('UPDATE books SET book_title = %s, book_author = %s, book_genre = %s, book_pages = %s WHERE book_id = %s',
                        (book_title, book_author, book_genre, book_pages, book_id))
         db.commit()
 
@@ -48,7 +48,7 @@ def update_book(book_id):
         return redirect(url_for('books_blueprint.books'))
 
     # GET method: fetch book's current data for pre-populating the form
-    cursor.execute('SELECT * FROM book_info WHERE book_id = %s', (book_id,))
+    cursor.execute('SELECT * FROM books WHERE book_id = %s', (book_id,))
     book = cursor.fetchone()
     return render_template('update_book.html', book=book)
 
@@ -58,7 +58,7 @@ def delete_book(book_id):
     cursor = db.cursor()
 
     # Delete the book
-    cursor.execute('DELETE FROM book_info WHERE book_id = %s', (book_id,))
+    cursor.execute('DELETE FROM books WHERE book_id = %s', (book_id,))
     db.commit()
 
     flash('Book deleted successfully!', 'danger')

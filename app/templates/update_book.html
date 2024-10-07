@@ -6,25 +6,25 @@
     <h1 class="text-center mb-4">Update Book</h1>
 
     <!-- Update Book Form -->
-    <form method="POST" action="{{ url_for('book_info.update_book', book_info_id=current_book_info.book_info_id) }}">
+    <form method="POST" action="{{ url_for('books.update_book', books_id=current_books.books_id) }}">
         <div class="form-group">
             <label for="book_title">Book Title</label>
-            <input type="text" class="form-control" id="book_title" name="book_title" value="{{ current_book_info.book_title }}" required>
+            <input type="text" class="form-control" id="book_title" name="book_title" value="{{ current_books.book_title }}" required>
         </div>
         <div class="form-group">
             <label for="book_author">Book Author</label>
-            <input type="text" class="form-control" id="book_author" name="book_author" value="{{ current_book_info.book_author }}" required>
+            <input type="text" class="form-control" id="book_author" name="book_author" value="{{ current_books.book_author }}" required>
         </div>
         <div class="form-group">
             <label for="book_genre">Book Genre</label>
-            <input type="text" class="form-control" id="book_genre" name="book_genre" value="{{ current_book_info.book_genre }}" required>
+            <input type="text" class="form-control" id="book_genre" name="book_genre" value="{{ current_books.book_genre }}" required>
         </div>
         <div class="form-group">
             <label for="book_pages">Book Pages</label>
-            <input type="number" class="form-control" id="book_pages" name="book_pages" value="{{ current_book_info.book_pages }}" required>
+            <input type="number" class="form-control" id="book_pages" name="book_pages" value="{{ current_books.book_pages }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Update Book</button>
-        <a href="{{ url_for('book_info.book') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ url_for('books.book') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 
