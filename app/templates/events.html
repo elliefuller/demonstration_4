@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>Events</title>
+<br>
+<h1>Upcoming Events</h1>
+<p>Join us for a variety of exciting events at our bookstore. From author signings to book club meetings, there's something for everyone!</p>
+<br>
+
+<h2>Author Signing: Karen Slaughter</h2>
+<p><strong>Date:</strong> October 15, 2024</p>
+<p><strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+<p>Meet Karen Slaughter, a bestselling American author known for her gripping crime and thriller novels, including the popular Grant County and Will Trent series. With her intense storytelling and complex characters, she has garnered a global readership and critical acclaim.</p>
+<img src="{{ url_for('static', filename='assets/slaughter.jpg') }}" style="width: 260px; height: 400px;">
+<br>
+<br>
+
+<h2>Book Club Meeting: "The Great Adventure"</h2>
+<p><strong>Date:</strong> November 20, 2024</p>
+<p><strong>Time:</strong> 6:00 PM - 7:30 PM</p>
+<p>Join our monthly book club meeting to discuss "The Women" by Kristin Hannah. Share your thoughts and insights with fellow book lovers.</p>
+<img src="{{ url_for('static', filename='assets/bookclub.jpg') }}" style="width: 420px; height: 280px;">
+<br>
+<br>
+
+<h2>Children's Storytime</h2>
+<p><strong>Date:</strong> December 1, 2024</p>
+<p><strong>Time:</strong> 10:00 AM - 11:00 AM</p>
+<p>Bring your little ones for a fun-filled storytime session. Enjoy interactive storytelling, songs, and activities.</p>
+<img src="{{ url_for('static', filename='assets/children.jpg') }}" style="width: 420px; height: 300px;">
+<br>
+
+
+{% endblock %}

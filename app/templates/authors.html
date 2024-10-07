@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>Top Authors</title>
+<br>
+<h1>Top Authors of the Month</h1>
+<p>Discover the most celebrated authors of this month, handpicked by our staff for their outstanding contributions to literature.</p>
+<br>
+
+<h2>Colleen Hoover</h2>
+    <img src="{{ url_for('static', filename='assets/hoover.jpg') }}" style="width: 310px; height: 200px;">
+    <p>Colleen Hoover is known for her captivating storytelling and showcasing of love, resilience, loss, and pain. Her 2022 best-seller "It Starts With Us" has taken the romance fiction world by storm. Hoover is able to write relatable and compelling content that tackle real-world issues, which has helped her secure the title of best novelist of the year.</p>
+<br>
+
+<h2>Lana Grace Riva</h2>
+    <img src="{{ url_for('static', filename='assets/riva.jpg') }}" style="width: 220px; height: 220px;">
+    <p>Lana Grace Riva has emerged in literature as a compelling author in psychological thrillers. "The Existence of Amy," published in 2019, faces the story of mental illness showcasing her bravery. </p>
+<br>
+
+<h2>J.K. Rowling</h2>
+    <img src="{{ url_for('static', filename='assets/rowling.jpg') }}" style="width: 300px; height: 200px;">
+    <p>Rowling is a British author, philanthropist, film producer, television producer, and screenwriter. She is best known for writing the Harry Potter fantasy series, which has won multiple awards and sold more than 500 million copies, becoming the best-selling book series in history.</p>
+
+{% endblock %}
