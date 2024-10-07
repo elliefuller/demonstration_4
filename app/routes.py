@@ -13,3 +13,11 @@ def about():
 def books():
     return render_template('books.html')
 
+@app.route('/authors')
+def authors():
+    return render_template('authors.html')
+
+@app.route('/events')
+def events():
+    return render_template('events.html')
+
