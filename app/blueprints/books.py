@@ -26,7 +26,7 @@ def book():
     # Handle GET request to display all books
     cursor.execute('SELECT * FROM books')
     all_books = cursor.fetchall()
-    return render_template('books.html', all_books=all_books)
+    return render_template('reads.html', all_books=all_books)
 
 @books.route('/update_book/<int:book_id>', methods=['GET', 'POST'])
 def update_book(book_id):

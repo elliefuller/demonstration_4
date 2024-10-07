@@ -11,7 +11,7 @@ def about():
 
 @app.route('/books')
 def books():
-    return render_template('books.html')
+    return render_template('reads.html')
 
 @app.route('/authors')
 def authors():

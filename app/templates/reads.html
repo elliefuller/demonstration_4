@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>Top Reads</title>
+<br>
+<h1>Top Books of the Month</h1>
+<p>See what books are trending this month, from various genres, collections, and more.</p>
+<br>
+
+<h2>Fourth Wing by Rebecca Yarros</h2>
+    <img src="{{ url_for('static', filename='assets/fourthwing.jpg') }}" style="width: 200px; height: 250px;">
+<p>Fourth Wing by Rebecca Yarros is the first book in the Empyrean series. It follows Violet Sorrengail, a young woman forced to join an elite dragon-riding military school, where survival is paramount. Amidst fierce competition, she must navigate political intrigue, hidden dangers, and her growing connection to powerful dragons while grappling with her own physical limitations and an unexpected romance.</p>
+<br>
+
+<h2>Something Lost, Something Gained: Reflections on Life, Love, and Liberty by Hillary Clinton</h2>
+    <img src="{{ url_for('static', filename='assets/something.jpg') }}" style="width: 200px; height: 290px;">
+<p>Something Lost, Something Gained: Reflections on Life, Love, and Liberty explores the balance between personal growth and sacrifice, reflecting on the emotional and philosophical changes that occur through life's pivotal experiences. The book delves into how love, freedom, and identity are shaped by both the losses we endure and the gains we cherish.</p>
+<br>
+
+<h2>The Book of Bill by Alex Hirsch</h2>
+    <img src="{{ url_for('static', filename='assets/thebookofbill.jpg') }}" style="width: 200px; height: 280px;">
+<p>The Book of Bill is a humorous and philosophical exploration of life, filled with witty observations and unconventional wisdom. It blends satire and thoughtful reflections, offering readers quirky yet insightful life lessons from the perspective of an everyman named Bill.</p>
+
+{% endblock %}

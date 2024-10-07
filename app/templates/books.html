@@ -2,24 +2,55 @@
 
 {% block content %}
 
-<title>Top Reads</title>
-<br>
-<h1>Top Books of the Month</h1>
-<p>See what books are trending this month, from various genres, collections, and more.</p>
-<br>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Books</h1>
 
-<h2>Fourth Wing by Rebecca Yarros</h2>
-    <img src="{{ url_for('static', filename='assets/fourthwing.jpg') }}" style="width: 200px; height: 250px;">
-<p>Fourth Wing by Rebecca Yarros is the first book in the Empyrean series. It follows Violet Sorrengail, a young woman forced to join an elite dragon-riding military school, where survival is paramount. Amidst fierce competition, she must navigate political intrigue, hidden dangers, and her growing connection to powerful dragons while grappling with her own physical limitations and an unexpected romance.</p>
-<br>
+    <!-- Form to add a new book -->
+    <form method="POST" action="{{ url_for('books.book') }}" class="mb-4">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </div>
+        </div>
+    </form>
 
-<h2>Something Lost, Something Gained: Reflections on Life, Love, and Liberty by Hillary Clinton</h2>
-    <img src="{{ url_for('static', filename='assets/something.jpg') }}" style="width: 200px; height: 290px;">
-<p>Something Lost, Something Gained: Reflections on Life, Love, and Liberty explores the balance between personal growth and sacrifice, reflecting on the emotional and philosophical changes that occur through life's pivotal experiences. The book delves into how love, freedom, and identity are shaped by both the losses we endure and the gains we cherish.</p>
-<br>
-
-<h2>The Book of Bill by Alex Hirsch</h2>
-    <img src="{{ url_for('static', filename='assets/thebookofbill.jpg') }}" style="width: 200px; height: 280px;">
-<p>The Book of Bill is a humorous and philosophical exploration of life, filled with witty observations and unconventional wisdom. It blends satire and thoughtful reflections, offering readers quirky yet insightful life lessons from the perspective of an everyman named Bill.</p>
+    <!-- Table to display all books -->
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Book ID</th>
+                <th scope="col">Book Title</th>
+                <th scope="col">Book Author</th>
+                <th scope="col">Book Genre</th>
+                <th scope="col">Book Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in all_books %}
+            <tr>
+                <td>{{ book.book_id }}</td>
+                <td>{{ book.book_title }}</td>
+                <td>{{ book.book_author }}</td>
+                <td>{{ book.book_genre }}</td>
+                <td>{{ book.book_pages }}</td>
+                <td>
+                    <!-- Update button -->
+                    <a href="{{ url_for('books.update_book', book_id=book.book_id) }}" class="btn btn-warning btn-sm">Update</a>
+                    <!-- Delete button -->
+                    <form action="{{ url_for('books.delete_runner', book_id=book.book_id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
