@@ -3,7 +3,7 @@ from app.db_connect import get_db
 
 books = Blueprint('books', __name__)
 
-@books.route('/book', methods=['GET', 'POST'])
+@books.route('/books', methods=['GET', 'POST'])
 def book():
     db = get_db()
     cursor = db.cursor()
@@ -62,4 +62,16 @@ def delete_book(book_id):
     db.commit()
 
     flash('Book deleted successfully!', 'danger')
+    return redirect(url_for('books.book'))
+
+@books.route('/reset_autoincrement', methods=['POST'])
+def reset_autoincrement():
+    db = get_db()
+    cursor = db.cursor()
+
+    # Reset the auto-increment value for the book_id column
+    cursor.execute('ALTER TABLE products AUTO_INCREMENT = 1')
+    db.commit()
+
+    flash('Auto-increment value reset successfully!', 'success')
     return redirect(url_for('books.book'))
