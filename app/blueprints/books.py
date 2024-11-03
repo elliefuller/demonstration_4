@@ -70,7 +70,7 @@ def reset_autoincrement():
     cursor = db.cursor()
 
     # Reset the auto-increment value for the book_id column
-    cursor.execute('ALTER TABLE products AUTO_INCREMENT = 1')
+    cursor.execute('ALTER TABLE books AUTO_INCREMENT = 1')
     db.commit()
 
     flash('Auto-increment value reset successfully!', 'success')

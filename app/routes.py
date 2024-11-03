@@ -1,5 +1,6 @@
 from flask import render_template
 from . import app
+from app.db_connect import get_db
 
 @app.route('/')
 def index():
@@ -23,4 +24,8 @@ def events():
 
 @app.route('/books')
 def books():
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM books')
+    all_books = cursor.fetchall()
     return render_template('books.html')

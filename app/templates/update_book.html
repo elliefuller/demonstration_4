@@ -5,27 +5,27 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">Update Book</h1>
 
-    <!-- Update Book Form -->
-    <form method="POST" action="{{ url_for('books.update_book', books_id=current_books.books_id) }}">
-        <div class="form-group">
-            <label for="book_title">Book Title</label>
-            <input type="text" class="form-control" id="book_title" name="book_title" value="{{ current_books.book_title }}" required>
+    <!-- Form to update a book -->
+    <form method="POST" action="{{ url_for('books.update_book', book_id=book.book_id) }}">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" name="book_title" placeholder="Book Title" value="{{ book.book_title }}" required>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="book_author" placeholder="Book Author" value="{{ book.book_author }}" required>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="book_genre" placeholder="Book Genre" value="{{ book.book_genre }}" required>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" name="book_pages" placeholder="Book Pages" value="{{ book.book_pages }}" required>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Update Book</button>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="book_author">Book Author</label>
-            <input type="text" class="form-control" id="book_author" name="book_author" value="{{ current_books.book_author }}" required>
-        </div>
-        <div class="form-group">
-            <label for="book_genre">Book Genre</label>
-            <input type="text" class="form-control" id="book_genre" name="book_genre" value="{{ current_books.book_genre }}" required>
-        </div>
-        <div class="form-group">
-            <label for="book_pages">Book Pages</label>
-            <input type="number" class="form-control" id="book_pages" name="book_pages" value="{{ current_books.book_pages }}" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Update Book</button>
-        <a href="{{ url_for('books.book') }}" class="btn btn-secondary">Cancel</a>
     </form>
+
 </div>
 
 {% endblock %}
